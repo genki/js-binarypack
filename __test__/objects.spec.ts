@@ -42,6 +42,9 @@ describe("Binarypack", () => {
 		if (result instanceof ArrayBuffer)
 			expect(new Uint8Array(result)).toEqual(v);
 	});
+	it("should keep undefined", async () => {
+		expect(await packAndUnpack(undefined)).toEqual(undefined);
+	});
 
 	it("should transfer Uint8Array as ArrayBuffer", async () => {
 		const values = [
